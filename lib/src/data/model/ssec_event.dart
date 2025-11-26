@@ -11,11 +11,18 @@ class SSECEvent {
     required this.data,
   });
 
+  Map<String, dynamic> toSsecMap() {
+    return {
+      'type': type.id,
+      'data': data.toSsecMap(),
+    };
+  }
+
   @override
   String toString() {
     return 'SSECEvent{'
-        'type: $type, '
-        'data: $data'
+        'type: ${type.id}, '
+        'data: ${data.toSsecMap()}'
         '}';
   }
 }

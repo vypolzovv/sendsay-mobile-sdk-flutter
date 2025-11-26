@@ -585,7 +585,11 @@ class _HomePageState extends State<HomePage> {
 
   Future<void> _trackSSEC(BuildContext context, SSECEvent ssec) =>
       _runAndShowResult(context, () async {
-        return await _plugin.trackSSECEvent(ssec);
+            final event = Event(
+              name: 'trackSSECEvent',
+              properties: ssec.toSsecMap(),
+            );
+            return await _plugin.trackEvent(event);
       });
 
   Future<void> _fetchAppInbox(BuildContext context) =>

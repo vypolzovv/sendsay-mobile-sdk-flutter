@@ -10,7 +10,7 @@ val minSdkVersion = 24
 val targetSdkVersion = 35
 
 val agpVersion = "8.10.2"
-val kotlinVersion = "1.9.24"
+//val kotlinVersion = "1.9.24"
 val multidexVersion = "2.0.1"
 val firebaseVersion = "23.0.0"
 val agconnectVersion = "1.9.1.300"

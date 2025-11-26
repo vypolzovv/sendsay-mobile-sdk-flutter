@@ -25,6 +25,7 @@ import com.sendsay.data.InAppMessageCoder
 import com.sendsay.data.NotificationCoder
 import com.sendsay.data.PurchasedItemCoder
 import com.sendsay.data.SSECEvent
+import com.sendsay.data.SSECEvent.Companion.toTrackSSECData
 import com.sendsay.data.SegmentationData
 import com.sendsay.data.getOptional
 import com.sendsay.exception.SendsayException
@@ -39,6 +40,8 @@ import com.sendsay.sdk.models.PropertiesList
 import com.sendsay.sdk.models.InAppMessage
 import com.sendsay.sdk.models.InAppMessageButton
 import com.sendsay.sdk.models.InAppMessageCallback
+import com.sendsay.sdk.models.TrackSSECData
+import com.sendsay.sdk.models.TrackingSSECType
 import com.sendsay.sdk.style.appinbox.StyledAppInboxProvider
 import com.sendsay.sdk.util.SendsayGson
 import com.sendsay.sdk.util.Logger
@@ -1049,10 +1052,12 @@ private class SendsayMethodHandler(private val context: Context) : MethodCallHan
         requireConfigured()
         val data = args as Map<String, Any?>
         val ssec = SSECEvent.fromMap(data)
+        val trackType = TrackingSSECType.valueOf(ssec.type)
+        val trackData = ssec.data.toTrackSSECData()
 
         Sendsay.trackSSECEvent(
-            ssec.type,
-            ssec.data
+            trackType,
+            trackData
         )
     }
 }
