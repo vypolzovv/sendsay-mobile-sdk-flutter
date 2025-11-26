@@ -128,7 +128,9 @@ class _HomePageState extends State<HomePage> {
             ),
           ListTile(
             title: const Text('Track'),
-            subtitle: Row(
+            subtitle: Wrap(
+              alignment: WrapAlignment.start,
+              spacing: 16,
               children: [
                 ElevatedButton(
                   onPressed: () => _trackEvent(context),
@@ -165,8 +167,9 @@ class _HomePageState extends State<HomePage> {
           ),
           ListTile(
             title: const Text('Trigger in-app message by event:'),
-            subtitle: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            subtitle: Wrap(
+              alignment: WrapAlignment.start,
+              spacing: 16,
               children: [
                 ElevatedButton(
                   onPressed: () =>

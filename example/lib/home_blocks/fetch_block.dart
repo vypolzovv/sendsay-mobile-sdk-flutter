@@ -14,7 +14,9 @@ class FetchBlock extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       title: const Text('Fetch'),
-      subtitle: Row(
+      subtitle: Wrap(
+        alignment: WrapAlignment.start,
+        spacing: 16,
         children: [
           ElevatedButton(
             onPressed: () => consentsCall(context),

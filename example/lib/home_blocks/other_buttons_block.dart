@@ -64,27 +64,27 @@ class OtherButtonsBlock extends StatelessWidget {
             child: const Text('Track payment event'),
           ),
         ),
-        ListTile(
-          title: ElevatedButton(
-            onPressed: () => Navigator.of(context).push(
-                MaterialPageRoute(builder: (context) => const InAppCbPage())),
-            child: const Text('In App CB Example Page'),
-          ),
-        ),
-        ListTile(
-          title: ElevatedButton(
-            onPressed: () => Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => const InAppCbCarouselPage())),
-            child: const Text('In App CB Carousel Example Page'),
-          ),
-        ),
-        ListTile(
-          title: ElevatedButton(
-            onPressed: () => Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => const AppInboxListPage())),
-            child: const Text('App inbox Example Page'),
-          ),
-        ),
+        // ListTile(
+        //   title: ElevatedButton(
+        //     onPressed: () => Navigator.of(context).push(
+        //         MaterialPageRoute(builder: (context) => const InAppCbPage())),
+        //     child: const Text('In App CB Example Page'),
+        //   ),
+        // ),
+        // ListTile(
+        //   title: ElevatedButton(
+        //     onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+        //         builder: (context) => const InAppCbCarouselPage())),
+        //     child: const Text('In App CB Carousel Example Page'),
+        //   ),
+        // ),
+        // ListTile(
+        //   title: ElevatedButton(
+        //     onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+        //         builder: (context) => const AppInboxListPage())),
+        //     child: const Text('App inbox Example Page'),
+        //   ),
+        // ),
         ListTile(
           title: ElevatedButton(
             onPressed: () => pluginSegmentsCallback(context),
