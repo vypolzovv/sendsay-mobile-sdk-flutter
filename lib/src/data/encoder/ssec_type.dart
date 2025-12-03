@@ -1,10 +1,10 @@
 import '../model/ssec_type.dart';
 
 abstract class SSECTypeEncoder {
-  static int encode(TrackingSSECType type) => type.id;
+  static String encode(TrackingSSECType type) => type.value;
 
-  static TrackingSSECType decode(int value) {
-    val result = TrackingSSECType.values.where( (e) => e.id == value );
+  static TrackingSSECType decode(String value) {
+    val result = TrackingSSECType.values.where( (e) => e.value == value );
     if (result != null) return result;
     else throw UnsupportedError('`$value` is not an TrackingSSECType!');
     // switch (value) {

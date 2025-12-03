@@ -20,10 +20,10 @@ In your project's `pubspec.yaml` file, add a dependency to the Sendsay Flutter S
 
 ```yaml
 dependencies:
-  sendsay: 1.6.0
+  sendsay: 0.1.0
 ```
 
-Optionally, you can specify a minimum version (for example, `^1.6.0`) or a version range (for example, `>=1.6.0 < 2.0.0`) instead of a specific version. Refer to [Version constraints](https://cocoapods.org/) in the Dart dependencies documentation for details.
+Optionally, you can specify a minimum version (for example, `^0.1.0`) or a version range (for example, `>=1.6.0 < 2.0.0`) instead of a specific version. Refer to [Version constraints](https://cocoapods.org/) in the Dart dependencies documentation for details.
 
 ### iOS setup
 

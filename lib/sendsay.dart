@@ -4,7 +4,6 @@ export 'src/data/model/consent.dart';
 export 'src/data/model/customer.dart';
 export 'src/data/model/event.dart';
 export 'src/data/model/event_type.dart';
-export 'src/data/model/ssec_event.dart';
 export 'src/data/model/flush_mode.dart';
 export 'src/data/model/http_log_level.dart';
 export 'src/data/model/log_level.dart';

@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../page/app_inbox_list_page.dart';
-import '../page/in_app_cb_carousel_page.dart';
-import '../page/in_app_cb_page.dart';
-
 class OtherButtonsBlock extends StatelessWidget {
   final Function(BuildContext) appInboxFetchAllCall;
   final Function(BuildContext) appInboxFetchItemCall;

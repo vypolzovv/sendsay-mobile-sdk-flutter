@@ -1052,11 +1052,13 @@ private class SendsayMethodHandler(private val context: Context) : MethodCallHan
         requireConfigured()
         val data = args as Map<String, Any?>
         val ssec = SSECEvent.fromMap(data)
-        val trackType = TrackingSSECType.valueOf(ssec.type)
+        val trackType = TrackingSSECType.find(value = ssec.type, id = null)
         val trackData = ssec.data.toTrackSSECData()
 
+        result.error(TAG + "( trackSSEC() ) : trackData =>", trackData.toString() + "====" + ssec.data.toString(), null)
+
         Sendsay.trackSSECEvent(
-            trackType,
+            trackType!!,
             trackData
         )
     }

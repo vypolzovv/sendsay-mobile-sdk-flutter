@@ -26,6 +26,7 @@ enum METHOD_NAME: String {
     case methodGetFlushPeriod = "getFlushPeriod"
     case methodSetFlushPeriod = "setFlushPeriod"
     case methodTrackEvent = "trackEvent"
+    case methodTrackSSEC = "trackSSEC"
     case methodTrackSessionStart = "trackSessionStart"
     case methodTrackSessionEnd = "trackSessionEnd"
     case methodFetchConsents = "fetchConsents"
@@ -368,6 +369,8 @@ public class SwiftSendsayPlugin: NSObject, FlutterPlugin {
             setFlushPeriod(call.arguments, with: result)
         case .methodTrackEvent:
             trackEvent(call.arguments, with: result)
+        case .methodTrackSSEC:
+            trackSSEC(call.arguments, with: result)
         case .methodTrackSessionStart:
             trackSessionStart(call.arguments, with: result)
         case .methodTrackSessionEnd:
@@ -1272,6 +1275,19 @@ public class SwiftSendsayPlugin: NSObject, FlutterPlugin {
             let data = args as! [String:Any?]
             let event = try SendsayEvent(data)
             sendsayInstance.trackEvent(properties: event.properties, timestamp: event.timestamp, eventType: event.name)
+            result(nil)
+        } catch {
+            let error = FlutterError(code: errorCode, message: error.localizedDescription, details: nil)
+            result(error)
+        }
+    }
+
+    private func trackSSEC(_ args: Any?, with result: FlutterResult) {
+        guard requireConfigured(with: result) else { return }
+        do {
+            let data = args as! [String:Any?]
+            let ssec = try SendsaySSEC(data)
+            sendsayInstance.trackEvent(properties: ssec.data, timestamp: nil, eventType: TrackingSSECType.find(value: ssec.type)?.rawValue)
             result(nil)
         } catch {
             let error = FlutterError(code: errorCode, message: error.localizedDescription, details: nil)

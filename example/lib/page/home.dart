@@ -4,22 +4,21 @@ import 'dart:convert';
 import 'package:example_flutter/home_blocks/customer_block.dart';
 import 'package:example_flutter/home_blocks/default_props_block.dart';
 import 'package:example_flutter/home_blocks/fetch_block.dart';
+import 'package:example_flutter/home_blocks/flush_mode_block.dart';
 import 'package:example_flutter/home_blocks/flush_period_block.dart';
 import 'package:example_flutter/home_blocks/log_level_block.dart';
 import 'package:example_flutter/home_blocks/other_buttons_block.dart';
 import 'package:example_flutter/home_blocks/push_events_block.dart';
 import 'package:example_flutter/home_blocks/ssec_block.dart';
-import 'package:example_flutter/home_blocks/flush_mode_block.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:sendsay/sendsay.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-import 'app_inbox_list_page.dart';
-import 'in_app_cb_carousel_page.dart';
-import 'in_app_cb_page.dart';
+import 'package:logger/logger.dart';
 
 final _plugin = SendsayPlugin();
+final logger = Logger();
 
 class HomePage extends StatefulWidget {
   final SendsayConfiguration config;
@@ -248,11 +247,12 @@ class _HomePageState extends State<HomePage> {
 
   Future<void> _trackSSEC(BuildContext context, SSECEvent ssec) =>
       _runAndShowResult(context, () async {
-        final event = Event(
-          name: 'trackSSECEvent',
-          properties: ssec.toSsecMap(),
+        // debugPrint(ssec.toString());
+        final event = SSECEvent(
+          type: ssec.type,
+          data: ssec.data,
         );
-        return await _plugin.trackEvent(event);
+        await _plugin.trackSSECEvent(event.toSsecMap());
       });
 
   Future<void> _fetchAppInbox(BuildContext context) =>
@@ -445,12 +445,18 @@ class _HomePageState extends State<HomePage> {
       } else {
         msg = 'Done';
       }
+      if (kDebugMode) {
+        logger.d(msg);
+      }
     } on PlatformException catch (err) {
       msg = 'Error: $err';
+      if (kDebugMode) {
+        logger.e(msg);
+      }
     }
     final snackBar = SnackBar(
       content: Text(msg),
-      duration: const Duration(seconds: 1),
+      duration: const Duration(seconds: 3),
     );
     ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }

@@ -43,7 +43,7 @@ class SsecBlock extends StatelessWidget {
             ElevatedButton(
               onPressed: () {
                 final randomTransactionId =
-                    Random.secure().nextDouble().abs().toString();
+                    Random.secure().nextInt(99999).abs().toString();
                 final DateFormat formatter = DateFormat("yyyy-MM-dd HH:mm:ss");
                 final String currentDateTime = formatter.format(DateTime.now());
 
@@ -118,7 +118,7 @@ class SsecBlock extends StatelessWidget {
                         url: "https://sendsay.ru/catalog/ryukzaki/ryukzak_745/",
                         model: "210-045 138761",
                         categoryId: 1153,
-                        cp: {"cp1": "promo-2025"},
+                        // cp: {"cp1": "promo-2025"},
                       ),
                     ]).buildData(),
                   ),
