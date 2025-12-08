@@ -29,7 +29,6 @@ class MainActivity : FlutterActivity() {
 
     override fun configureFlutterEngine(@NonNull flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
-//        MethodChannel(flutterEngine.dartExecutor.binaryMessenger, "com.sendsay.example_flutter/utils").setMethodCallHandler { call, result ->
         MethodChannel(flutterEngine.dartExecutor.binaryMessenger, "com.sendsay/utils").setMethodCallHandler { call, result ->
             if (call.method == "getAndroidPushIcon") {
                 result.success(R.mipmap.ic_notification)

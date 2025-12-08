@@ -136,7 +136,7 @@ abstract class SendsayPlatform extends PlatformInterface
   }
   
   @override
-  Future<void> trackSSECEvent(SSECEvent ssec) async {
+  Future<void> trackSSECEvent(Map<String, dynamic> ssec) async {
     throw UnimplementedError();
   }
 

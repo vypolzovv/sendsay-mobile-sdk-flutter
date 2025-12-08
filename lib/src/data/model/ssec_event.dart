@@ -13,16 +13,16 @@ class SSECEvent {
 
   Map<String, dynamic> toSsecMap() {
     return {
-      'type': type.id,
-      'data': data.toSsecMap(),
+      'type': type.value,
+      'data': data.toProperties(),
     };
   }
 
   @override
   String toString() {
     return 'SSECEvent{'
-        'type: ${type.id}, '
-        'data: ${data.toSsecMap()}'
+        'type: ${type.value}, '
+        'data: ${data.toProperties()}'
         '}';
   }
 }

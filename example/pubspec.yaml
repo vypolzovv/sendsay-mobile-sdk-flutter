@@ -23,6 +23,7 @@ dependencies:
 dev_dependencies:
   flutter_lints: ^4.0.0
   icons_launcher: ^3.0.3
+  logger: ^2.6.2
 
 flutter:
   uses-material-design: true

@@ -1,5 +1,6 @@
 import 'ssec_type.dart';
 import 'order_item.dart';
+import 'package:logger/logger.dart';
 
 class TrackSSECData {
   // Продукт
@@ -82,13 +83,13 @@ class TrackSSECData {
     }
 
     // product
-    put('id', productId);
-    put('name', productName);
+    put('productId', productId);
+    put('productName', productName);
     put('picture', picture);
     put('url', url);
     put('available', available);
-    put('category_paths', categoryPaths);
-    put('category_id', categoryId);
+    put('categoryPaths', categoryPaths);
+    put('categoryId', categoryId);
     put('category', category);
     put('description', description);
     put('vendor', vendor);
@@ -98,29 +99,33 @@ class TrackSSECData {
     put('oldPrice', oldPrice);
 
     // update
-    put('update_per_item', updatePerItem);
+    put('updatePerItem', updatePerItem);
     put('update', update);
 
     // transaction
-    put('transaction_id', transactionId);
-    put('transaction_dt', transactionDt);
-    put('transaction_status', transactionStatus);
-    put('transaction_discount', transactionDiscount);
-    put('transaction_sum', transactionSum);
+    put('transactionId', transactionId);
+    put('transactionDt', transactionDt);
+    put('transactionStatus', transactionStatus);
+    put('transactionDiscount', transactionDiscount);
+    put('transactionSum', transactionSum);
 
     // delivery / payment
-    put('delivery_dt', deliveryDt);
-    put('delivery_price', deliveryPrice);
-    put('payment_dt', paymentDt);
+    put('deliveryDt', deliveryDt);
+    put('deliveryPrice', deliveryPrice);
+    put('paymentDt', paymentDt);
 
     // items (ORDER / BASKET)
     if (items != null) {
-      out['items'] = items!.map((e) => e.toSsecMap()).toList();
+      final logger = Logger();
+      out['items'] = items!.map((e) => e.toJson()).toList();
+          // .first;
+
+      // logger.d(out['items'].toString());
     }
 
     // subscription / favorites
     if (subscriptionAdd != null) {
-      out['add'] = subscriptionAdd!.map((e) => e.toSsecMap()).toList();
+      out['add'] = subscriptionAdd!.map((e) => e.toJson()).toList();
     }
     put('delete', subscriptionDelete);
     put('clear', subscriptionClear);

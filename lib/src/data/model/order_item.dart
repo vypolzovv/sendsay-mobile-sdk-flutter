@@ -81,7 +81,7 @@ class OrderItem {
   }
 
   /// Для совместимости с тем, что у нас в трекере
-  Map<String, dynamic> toSsecMap() => toJson();
+  // Map<String, dynamic> toSsecMap() => toJson();
 
   /// Обратная операция к кастомному десериалайзеру.
   factory OrderItem.fromJson(Map<String, dynamic> json) {

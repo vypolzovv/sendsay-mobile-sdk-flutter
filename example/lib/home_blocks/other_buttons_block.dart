@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../page/app_inbox_list_page.dart';
-import '../page/in_app_cb_carousel_page.dart';
-import '../page/in_app_cb_page.dart';
-
 class OtherButtonsBlock extends StatelessWidget {
   final Function(BuildContext) appInboxFetchAllCall;
   final Function(BuildContext) appInboxFetchItemCall;
@@ -64,27 +60,27 @@ class OtherButtonsBlock extends StatelessWidget {
             child: const Text('Track payment event'),
           ),
         ),
-        ListTile(
-          title: ElevatedButton(
-            onPressed: () => Navigator.of(context).push(
-                MaterialPageRoute(builder: (context) => const InAppCbPage())),
-            child: const Text('In App CB Example Page'),
-          ),
-        ),
-        ListTile(
-          title: ElevatedButton(
-            onPressed: () => Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => const InAppCbCarouselPage())),
-            child: const Text('In App CB Carousel Example Page'),
-          ),
-        ),
-        ListTile(
-          title: ElevatedButton(
-            onPressed: () => Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => const AppInboxListPage())),
-            child: const Text('App inbox Example Page'),
-          ),
-        ),
+        // ListTile(
+        //   title: ElevatedButton(
+        //     onPressed: () => Navigator.of(context).push(
+        //         MaterialPageRoute(builder: (context) => const InAppCbPage())),
+        //     child: const Text('In App CB Example Page'),
+        //   ),
+        // ),
+        // ListTile(
+        //   title: ElevatedButton(
+        //     onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+        //         builder: (context) => const InAppCbCarouselPage())),
+        //     child: const Text('In App CB Carousel Example Page'),
+        //   ),
+        // ),
+        // ListTile(
+        //   title: ElevatedButton(
+        //     onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+        //         builder: (context) => const AppInboxListPage())),
+        //     child: const Text('App inbox Example Page'),
+        //   ),
+        // ),
         ListTile(
           title: ElevatedButton(
             onPressed: () => pluginSegmentsCallback(context),
