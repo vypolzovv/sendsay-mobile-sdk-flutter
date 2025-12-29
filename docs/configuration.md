@@ -50,12 +50,12 @@ parentDocSlug: flutter-sdk-setup
 * `sessionTimeout`
   * Время сессии в секундах.
   * По умолчанию — `60.0`, минимум — `5.0`, рекомендуемый максимум — `120.0`, абсолютный максимум — `180.0`.
-  * Большее значение приведет к тому, что сессия будет завершена.
+  * Большее значение приведёт к тому, что сессия будет завершена.
   * Подробнее — в разделе [Отслеживание сессий](tracking#Сессии).
 
   > ❗️ 
   > 
-  > Сессия — это фактическое время, проведенное в приложении. Она начинается при запуске приложения и заканчивается, когда приложение переходит в фон.
+  > Сессия — это фактическое время, проведённое в приложении. Она начинается при запуске приложения и заканчивается, когда приложение переходит в фон.
 
 * `pushTokenTrackingFrequency`
   * Частота отслеживания push-токена в CDP Sendsay.
@@ -94,7 +94,7 @@ parentDocSlug: flutter-sdk-setup
 
 ### Параметры конфигурации, специфичные для Android
 
-Следующие параметры настраиваются объекте `AndroidSendsayConfiguration`. Полное определение Dart смотрите в [lib/src/data/model/configuration.dart](https://github.com/sendsay-ru/sendsay-mobile-sdk-flutter/blob/main/lib/src/data/model/configuration.dart).
+Следующие параметры настраиваются в объекте `AndroidSendsayConfiguration`. Полное определение Dart смотрите в [lib/src/data/model/configuration.dart](https://github.com/sendsay-ru/sendsay-mobile-sdk-flutter/blob/main/lib/src/data/model/configuration.dart).
 
 * `automaticPushNotification`
   * Управляет автоматической обработкой push-уведомлений SDK.

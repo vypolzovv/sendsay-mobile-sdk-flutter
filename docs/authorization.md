@@ -50,4 +50,4 @@ final configured = await _plugin.configure(config);
 >
 > Рекомендуется обеспечить безопасное хранение API-ключа. 
 > Для Android можно использовать, например, [KeyStore](https://developer.android.com/training/articles/keystore) или [Encrypted Shared Preferences](https://developer.android.com/reference/androidx/security/crypto/EncryptedSharedPreferences).
-> Для Flutter доступны аналогичные решения, например пакеты из категории [secure storage](https://pub.dev/packages?q=secure+storage)/
+> Для Flutter доступны аналогичные решения, например, пакеты из категории [secure storage](https://pub.dev/packages?q=secure+storage)/

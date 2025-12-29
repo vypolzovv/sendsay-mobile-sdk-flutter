@@ -121,7 +121,7 @@ _plugin.requestPushAuthorization()
 
 По умолчанию, если push-уведомление получено, когда приложение находится в активном состоянии, уведомление отображается в панели уведомлений, а значок появляется в строке состояния.
 
-Чтобы показывать собственные баннеры уведомлений, можно настроить [слушатель для полученных push-уведомлений](push-notifications.md#реакция-на-полученние-push-уведомления) с помощью `SendsayPlugin.receivedPushStream` и реализовать отображение баннера самостоятельно, например с помощью пакета [flutter_local_notifications](https://pub.dev/packages/flutter_local_notifications).
+Чтобы показывать собственные баннеры уведомлений, можно настроить [слушатель для полученных push-уведомлений](push-notifications.md#реакция-на-полученние-push-уведомления) с помощью `SendsayPlugin.receivedPushStream` и реализовать отображение баннера самостоятельно, например, с помощью пакета [flutter_local_notifications](https://pub.dev/packages/flutter_local_notifications).
 
 ```dart
 final subscription = _plugin.receivedPushStream.listen((receivedPush) {
